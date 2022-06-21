@@ -68,7 +68,7 @@ const New = () => {
           count: parseInt(count.current.value),
         })
       );
-    }, 2000);
+    }, 2500);
   };
 
   return (

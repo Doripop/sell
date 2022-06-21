@@ -31,22 +31,35 @@ export const userinfoLoadSV = () => {
         dispatch(userinfoLOAD(mypageUser_list));
       } catch(error){
         console.error(error)
-      }
+      } 
     };
   };
   
 export const changeNicname = (nickname) => {
+  let token = localStorage.getItem("userToken");
+  // const username = {username: nickname}
+  // console.log(nickname);
   return async function (dispatch) {
-    await axios.put("http://0.0.0.0/api/user/mypage/nickname", nickname).then((response) => {
-
-    //어떤 스테이트 남길지 의논
-    })
+    try {
+      const {data} = await axios.put("http://13.125.112.232/api/user/mypage/nickname",nickname,{
+      headers: {Authorization: 'Bearer ' + token }
+     })
+     console.log(data);
+    } catch (error) {
+      console.log(error)
+    }
+    
+     
+    //  .then((response) => {
+    //   console.log(response);
+  
+    // })
   }
 }
 
 export const changeComment = (info) => {
   return async function (dispatch) {
-    await axios.put("http://0.0.0.0/api/user/mypage/info", info).then((response) => {
+    await axios.put("http://13.125.112.232/api/user/mypage/info", info).then((response) => {
 
     //어떤 스테이트 남길지 의논
     })
@@ -61,7 +74,7 @@ export const loginCheck = () => {
         Authorization: 'Bearer ' + token 
       }
      } ).then((response) => {
-      // console.log(response);
+      // localStorage.setItem("userId", response.data.userId);
     //어떤 스테이트 남길지 의논
     })
   }
@@ -77,7 +90,7 @@ export const loginCheck = () => {
 
 
         case "mypage/LOAD": {
-            // console.log(action.mypageUser_list);
+            // console.log(action.mypageUser_list)
             return { list: action.mypageUser_list };
           }
 

@@ -11,7 +11,7 @@ const Search = () => {
     const dispatch = useDispatch()
     const searchItem_list = useSelector((state) => state.searchSV.list);
     const [way, setWay] = useState("default")
-
+    console.log(searchItem_list)
     console.log(way)
     const wayChange = (e) =>{
         setWay(e)

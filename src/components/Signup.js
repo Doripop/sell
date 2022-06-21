@@ -71,7 +71,7 @@ const Signup = ({ loginClose }) => {
               alert(eMsg)             
             });
           console.log(userInfo);
-        }, 1500);
+        }, 2800);
       }
     }
   }

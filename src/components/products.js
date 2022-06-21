@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Route, Routes, useMatch, useNavigate } from "react-router-dom"
 import Product from "./URLpage/product";
@@ -20,7 +20,9 @@ function Mypage(props) {
         dispatch(userinfoLoadSV());
     }, [dispatch]);
 
-    // const mypage_list = useSelector((state) => state.userinfo.list);
+    const mypage_list = useSelector((state) => state.userInfo.list);
+    const mylist = []
+    mylist.push(mypage_list);
     //여기서 뭘 받고 리스트 비교후에 넘길지 아니면 걍 로그인된 정보 하나만 사용할지
     //받아온거 뿌려주기만하면됩니다.
 
@@ -56,11 +58,14 @@ function Mypage(props) {
 
     return (
         <>
+            
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                <div style={{ marginTop: "30px", display: "flex", justifyContent: "center", flexDirection: "row" }}>
-                    <Mybox />
+                {mylist.map((item, index)=>(
+                    
+                    <div style={{ marginTop: "30px", display: "flex", justifyContent: "center", flexDirection: "row" }}>
+                    <Mybox img src ={item.userprofileUrl}/>
                     <Sidebox>
-                        <span style={{ display: "flex" }}> 여기에 닉네임 <Btn style={{ display: click }} onClick={() => { clickevent() }}>상점명 수정</Btn>
+                        <span style={{ display: "flex" }}>{item.nickname}<Btn style={{ display: click }} onClick={() => { clickevent() }}>상점명 수정</Btn>
                             <input ref={changeNIC} type="text" placeholder="닉네임변경" style={{ display: unclick }}></input>
                             <button style={{ display: unclick }} onClick={() => { unclickevent(); changeInfo() }}>수정</button>
                         </span>
@@ -87,10 +92,11 @@ function Mypage(props) {
                             <Tea ref={changeCom}></Tea>
                             <Okbut onClick={() => { unclickC(); changeInfoCom() }}>확인</Okbut>
                         </div>
-
                     </Sidebox>
                 </div>
 
+                ))}
+                
 
 
 
@@ -110,6 +116,8 @@ function Mypage(props) {
 
                 </div>
             </div>
+  
+            
 
             <Routes>
                 <Route path='product' element={<Product />} />
@@ -119,7 +127,6 @@ function Mypage(props) {
                 <Route path='followings' element={<Followings />} />
                 <Route path='reviews' element={<Reviews />} />
             </Routes>
-
         </>
     )
 };
@@ -147,13 +154,13 @@ const Insidebox = styled.div`
     margin-right: 30px;
 `;
 
-const Mybox = styled.div`
+const Mybox = styled.img`
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 0;
     width: 310px;
     height: 310px;
-    background-image: url("https://m.bunjang.co.kr/pc-static/media/pattern-shop.066ca385.png");
+    /* background-image: url("https://m.bunjang.co.kr/pc-static/media/pattern-shop.066ca385.png"); */
     background-color: rgb(181, 181, 181);
     z-index:"-1";
 `;
