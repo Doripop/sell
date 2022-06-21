@@ -1,0 +1,115 @@
+.signupModal{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.signupModal .background {
+    width: 100%;
+    height: 100%;  
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modal{
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    background: rgb(247, 247, 247);
+    box-shadow: rgb(0 0 0 / 10%) 0px 6px 50px 0px;
+    width: 400px;
+    padding: 50px 20px;
+    border-radius: 4px;
+
+}
+.titleBox{
+    margin-bottom:30px;
+}
+.titleBox h2{
+    margin-bottom:15px;
+}
+.titleBox .appImg {
+    width: 34px;
+}
+
+
+.loginFrom label {
+    text-align: center;
+    display: block;
+}
+
+.loginFrom label input,
+.loginFrom label textarea {
+    width: 70%;
+    max-width: 70%;
+    padding:10px 10px;
+    margin-bottom:10px;
+    border-radius: 5px;
+    outline: none;
+    border:1px solid rgb(224 221 221);
+    font-size: 16px;
+    font-family: 'Noto Sans KR';
+}
+.loginFrom label textarea{
+    height:100px;
+}
+
+
+.loginFrom label input::placeholder,
+.loginFrom label textarea::placeholder{
+    color:gray;
+    font-size: 14px;
+}
+
+
+.buttonArea{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+
+}
+.buttonArea p:first-child{
+    margin-right:10px;
+}
+
+.signUpBtn, .buttonArea p{
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.buttonArea .on{        
+    background-color: #D80C18;
+    color:#fff;    
+}
+.buttonArea .off{        
+    border: 1px solid #bbbbbb;
+    color:#bbbbbb;    
+}
+.closeBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding:15px;
+    font-size: 20px;
+    color:lightgray;
+    cursor: pointer;
+    background-color: #00000000;
+}
+.subInfo {
+    border-top: 1px solid rgb(229, 229, 229);
+    padding-top:1rem;
+    font-size: 12.5px;
+    color:gray;
+}

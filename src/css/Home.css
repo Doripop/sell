@@ -1,0 +1,122 @@
+.container{
+    width: 1024px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/*메인배너*/
+.mainBnContainer{
+    position: relative;
+    height:298px;
+}
+.bnItem{    
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    transition: .5s;
+    top:0;    
+}
+.bnItem img {
+    width: 1024px;
+    height: 100%;
+    background-color: red;
+}
+.leftBtn, .rightBtn{
+    background-color: #00000000;
+    position: absolute;
+    top: 50%;  
+    transform: translate(0%, -50%);
+    z-index: 1;
+}
+.leftBtn {
+    left:20px;
+      
+}
+.rightBtn {
+    right: 20px;
+}
+
+/*서브배너*/
+.subBnItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top:16px;
+}
+.subBnItem img{
+    width: 100%;
+}
+
+
+
+
+/*상품리스트*/
+
+.prdListContainer{
+    padding: 3.5rem 0px 1.5rem;
+    
+}
+
+.prdListContainer .title{
+    font-size: 24px;
+    margin-bottom:24px;
+    color:#212121;
+}
+
+.prdContent{
+    display: grid;
+    grid-template-columns: repeat(5, 194px);
+    justify-content: space-between;
+}
+.item{
+    border: 1px solid rgb(238, 238, 238);
+    margin-bottom: 11px;
+}
+.item .thumb{
+    width: 100%;
+    height: 194px;
+
+}
+
+.item .thumb img{
+    width: 100%;
+
+}
+
+.item .prdInfo {
+    padding: 15px 10px;
+    height: 50px;
+}
+
+.item .prdInfo .prdTitle{
+    color: #212121;
+    font-size: 14px;
+    width: 100%;
+    padding-bottom: 20px;
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.item .prdInfo div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.item .prdInfo div .time {
+    color: rgb(136, 136, 136);
+    font-size: 12px;
+}
+.item .prdInfo .price {
+    font-size: 16px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1;
+}
+.item .prdInfo .price span{
+    font-size: 13px;
+    margin-right:3px;
+}
